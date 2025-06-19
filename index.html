@@ -34,7 +34,7 @@
     #time {
       font-size: 64px;
       text-shadow: 2px 2px 5px black;
-      margin-bottom: -1px;
+      margin-bottom: 5px;
     }
 
     #label {
@@ -43,22 +43,6 @@
       text-shadow: 1px 1px 3px #000;
       margin-top: 0;
     }
-
-    #start-button {
-      position: fixed;
-      bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      padding: 10px 20px;
-      font-size: 18px;
-      font-family: 'UnifrakturCook', cursive;
-      background-color: #220000;
-      color: #fff;
-      border: 2px solid #ff3b3b;
-      cursor: pointer;
-      pointer-events: auto;
-      z-index: 1000;
-    }
   </style>
 </head>
 <body>
@@ -66,12 +50,10 @@
     <div id="time">45:00</div>
     <div id="label">Until Madness Resets</div>
   </div>
-  <button id="start-button">Begin Countdown</button>
 
   <script>
     let duration = 45 * 60;
     const timeEl = document.getElementById("time");
-    let timerInterval = null;
 
     function updateTimer() {
       const minutes = String(Math.floor(duration / 60)).padStart(2, '0');
@@ -84,8 +66,10 @@
         clearInterval(timerInterval);
         timeEl.textContent = "00:00";
       }
+    }
 
-    });
+    updateTimer();
+    const timerInterval = setInterval(updateTimer, 1000);
   </script>
 </body>
 </html>
