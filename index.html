@@ -84,13 +84,7 @@
         clearInterval(timerInterval);
         timeEl.textContent = "00:00";
       }
-    }
 
-    document.getElementById("start-button").addEventListener("click", () => {
-      if (!timerInterval) {
-        timerInterval = setInterval(updateTimer, 1000);
-        document.getElementById("start-button").style.display = "none";
-      }
     });
   </script>
 </body>
